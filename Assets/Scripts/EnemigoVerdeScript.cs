@@ -10,7 +10,7 @@ public class EnemigoVerdeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(Disparar());
     }
 
     // Update is called once per frame
@@ -21,4 +21,12 @@ public class EnemigoVerdeScript : MonoBehaviour
         if ((transform.position.x < -8.8) || (transform.position.x > 8.8)) velocidadX = -velocidadX;
         if ((transform.position.y < -3.8) || (transform.position.y > 3.8)) velocidadY = -velocidadY;
     }
+
+    IEnumerator Disparar()
+    {
+        yield return new
+        WaitForSeconds(3);
+        Debug.Log("Hola");
+    }
+
 }
