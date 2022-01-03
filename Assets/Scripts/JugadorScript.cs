@@ -5,6 +5,10 @@ using UnityEngine;
 public class JugadorScript : MonoBehaviour
 {
     [SerializeField] private float velocidad = 7;
+    [SerializeField] private float velocidadDisparo = 2;
+    [SerializeField] Transform prefabDisparo;
+    Transform disparo;
+    //Instantiate
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +28,20 @@ public class JugadorScript : MonoBehaviour
             horizontal * velocidad * Time.deltaTime, 
             vertical * velocidad * Time.deltaTime,
             0);
-    }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("Golpeado");
+
+        /// Si pulsamos control
+        if (Input.GetButtonDown("Fire1"))
+        {
+            // Instanciamos el disparo
+            disparo = Instantiate(prefabDisparo, transform.position, Quaternion.identity);
+            GetComponent<AudioSource>().Play();
+            // Velocidad y direccion del disparo
+            //disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(
+            //    horizontal * Time.deltaTime * velocidadDisparo * 1000,
+            //    vertical * Time.deltaTime * velocidadDisparo * 1000, 
+            //    0);
+            disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, velocidadDisparo, 0);
+        }
     }
 }
