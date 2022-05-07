@@ -7,20 +7,19 @@ public class JugadorScript : MonoBehaviour
     [SerializeField] private float velocidad = 7;
     [SerializeField] private float velocidadDisparo = 5;
     [SerializeField] Transform prefabDisparo;
+    [SerializeField] Transform prefabEnemigo;	
     Transform disparo;
-    //Instantiate
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
     void Update()
     {
         // Mostrar fps
-        //Debug.Log(Time.deltaTime + "seg, " + (1.0f / Time.deltaTime) + "FPS");
-
+        // Debug.Log(Time.deltaTime + "seg, " + (1.0f / Time.deltaTime) + "FPS");
         // Obtener movimiento
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -55,4 +54,5 @@ public class JugadorScript : MonoBehaviour
         }
 
     }
+
 }

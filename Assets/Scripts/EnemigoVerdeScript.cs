@@ -6,6 +6,9 @@ public class EnemigoVerdeScript : MonoBehaviour
 {
     [SerializeField] private float velocidadX = 2;
     [SerializeField] private float velocidadY = -2;
+    [SerializeField] private float velocidadDisparo = 2;
+    [SerializeField] Transform prefabShuriken;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +27,11 @@ public class EnemigoVerdeScript : MonoBehaviour
 
     IEnumerator Disparar()
     {
-        yield return new
-        WaitForSeconds(3);
-        Debug.Log("Hola");
+        float pausa = Random.Range(2.0f, 5.0f);
+        yield return new WaitForSeconds(pausa);
+        Transform disparo = Instantiate(prefabShuriken,transform.position, Quaternion.identity);
+        disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, velocidadDisparo, 0);
+        StartCoroutine( Disparar() );
     }
 
 }

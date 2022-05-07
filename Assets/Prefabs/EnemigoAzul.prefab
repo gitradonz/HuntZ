@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1239809333}
   - component: {fileID: 8154677842326669602}
   m_Layer: 0
-  m_Name: EnemigoVerde
+  m_Name: EnemigoAzul
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadX: 1
   velocidadY: -1
+  velocidadDisparo: 2
+  prefabShuriken: {fileID: 5769309812985329719, guid: 3a75444882bedf540aaea1f78b47aee0, type: 3}
 --- !u!95 &1239809333
 Animator:
   serializedVersion: 3
