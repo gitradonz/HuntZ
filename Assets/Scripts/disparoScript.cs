@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class disparoScript : MonoBehaviour
 {
 
     [SerializeField] Transform prefabExplosion;
+    public static int killCount;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +27,7 @@ public class disparoScript : MonoBehaviour
         // Cuando haya colision con un enemigo
         if (other.tag == "Enemigo")
         {
-            Debug.Log("Enemigo golpeado");
+            killCount++;
             // Instanciamos el GameObject de la explosion mediante prefab
             Transform explosion = Instantiate(prefabExplosion, other.transform.position, Quaternion.identity);
 
@@ -41,6 +40,11 @@ public class disparoScript : MonoBehaviour
             Destroy(gameObject);
         }
         
+    }
+
+    public static int getKillCount()
+    {
+        return killCount;
     }
 
 }

@@ -12,13 +12,13 @@ public class JugadorScript : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     public float force;
+    public UnityEngine.UI.Text txtPuntos;
 
     void Start()
     {
        
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Mostrar fps
@@ -27,6 +27,8 @@ public class JugadorScript : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
+            
+            // GameObject.Find // Busca un objeto en el escenario
    
             transform.Translate(
             horizontal * velocidad * Time.deltaTime, 
@@ -45,32 +47,18 @@ public class JugadorScript : MonoBehaviour
         }
         
         
-        
-
-        /// Si pulsamos control
-        /// y no estamos quietos
-        // if (horizontal!=0 || vertical!=0)
-        // {
             if (Input.GetButtonDown("Fire1"))
             {
                 // Instanciamos el disparo
                 disparo = Instantiate(prefabDisparo, transform.position, Quaternion.identity);
                 GetComponent<AudioSource>().Play();
 
-                // Velocidad y direccion del disparo
-                 mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+                // Velocidad y direccion del disparo dependiendo de la posicion del mouse
+                mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
                 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
                 Vector3 direction = mousePos - transform.position;
                 disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * velocidadDisparo;
-                /*
-                 *  disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(
-                 *  horizontal * Time.deltaTime * velocidadDisparo * 1000,
-                 *  vertical * Time.deltaTime * velocidadDisparo * 1000, 
-                 *  0);
-                */
-
             }
-        // }
 
     }
 

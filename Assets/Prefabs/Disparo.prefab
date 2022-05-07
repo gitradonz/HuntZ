@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabExplosion: {fileID: 1176713231364725843, guid: db6d9523edff5ea42a5dbbd7da1865b6, type: 3}
+  txtPuntos: {fileID: 0}
 --- !u!58 &1404280905518559206
 CircleCollider2D:
   m_ObjectHideFlags: 0

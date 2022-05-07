@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8863037421057721716}
   m_Layer: 0
   m_Name: Jugador
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,9 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 4
-  velocidadDisparo: 5
+  velocidadDisparo: 7
   prefabDisparo: {fileID: 2496427619748439441, guid: 55a971feabaf3e04c985757c73fb6b9b, type: 3}
-  prefabEnemigoVerde: {fileID: 7426962681904187200, guid: dfaddc2a9606a4842b7f056c6a8dc392, type: 3}
+  prefabExplosion: {fileID: 1176713231364725843, guid: db6d9523edff5ea42a5dbbd7da1865b6, type: 3}
+  force: 0
+  txtPuntos: {fileID: 0}
 --- !u!50 &8863037421057721718
 Rigidbody2D:
   serializedVersion: 4
@@ -147,7 +149,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 2.66, y: 2.62}
   m_EdgeRadius: 0
 --- !u!82 &8863037421057721716
 AudioSource:
