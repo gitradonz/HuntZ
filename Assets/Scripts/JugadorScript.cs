@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class JugadorScript : MonoBehaviour
@@ -10,9 +8,14 @@ public class JugadorScript : MonoBehaviour
     [SerializeField] Transform prefabExplosion;	
     Transform disparo;
 
+    private Vector3 mousePos;
+    private Camera mainCam;
+    private Rigidbody2D rb;
+    public float force;
+
     void Start()
     {
-    
+       
     }
 
     // Update is called once per frame
@@ -32,7 +35,7 @@ public class JugadorScript : MonoBehaviour
             
            if (transform.position.y > 3.8 || transform.position.y < -3.8 ||
             transform.position.x > 8.8 || transform.position.x < -8.8)
-        {
+        {   
             Debug.Log("He muerto");
             Transform explosion = Instantiate(prefabExplosion, transform.position, Quaternion.identity);
             explosion.GetComponent<AudioSource>().Play();
@@ -42,11 +45,12 @@ public class JugadorScript : MonoBehaviour
         }
         
         
+        
 
         /// Si pulsamos control
         /// y no estamos quietos
-        if (horizontal!=0 || vertical!=0)
-        {
+        // if (horizontal!=0 || vertical!=0)
+        // {
             if (Input.GetButtonDown("Fire1"))
             {
                 // Instanciamos el disparo
@@ -54,10 +58,10 @@ public class JugadorScript : MonoBehaviour
                 GetComponent<AudioSource>().Play();
 
                 // Velocidad y direccion del disparo
-                disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(
-                    horizontal * velocidadDisparo,
-                    vertical * velocidadDisparo,
-                    0);
+                 mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+                mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 direction = mousePos - transform.position;
+                disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * velocidadDisparo;
                 /*
                  *  disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(
                  *  horizontal * Time.deltaTime * velocidadDisparo * 1000,
@@ -66,7 +70,7 @@ public class JugadorScript : MonoBehaviour
                 */
 
             }
-        }
+        // }
 
     }
 
