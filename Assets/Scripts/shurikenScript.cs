@@ -9,7 +9,7 @@ public class shurikenScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,6 +24,8 @@ public class shurikenScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
+        
         // Cuando haya colision con un enemigo
         if (other.tag == "Player")
         {

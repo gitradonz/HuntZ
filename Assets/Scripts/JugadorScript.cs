@@ -7,7 +7,7 @@ public class JugadorScript : MonoBehaviour
     [SerializeField] private float velocidad = 7;
     [SerializeField] private float velocidadDisparo = 5;
     [SerializeField] Transform prefabDisparo;
-    [SerializeField] Transform prefabEnemigo;	
+    [SerializeField] Transform prefabExplosion;	
     Transform disparo;
 
     void Start()
@@ -23,10 +23,25 @@ public class JugadorScript : MonoBehaviour
         // Obtener movimiento
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        transform.Translate(
+
+   
+            transform.Translate(
             horizontal * velocidad * Time.deltaTime, 
             vertical * velocidad * Time.deltaTime,
             0);
+            
+           if (transform.position.y > 3.8 || transform.position.y < -3.8 ||
+            transform.position.x > 8.8 || transform.position.x < -8.8)
+        {
+            Debug.Log("He muerto");
+            Transform explosion = Instantiate(prefabExplosion, transform.position, Quaternion.identity);
+            explosion.GetComponent<AudioSource>().Play();
+
+            Destroy(explosion.gameObject, 1f);
+            Destroy(gameObject);
+        }
+        
+        
 
         /// Si pulsamos control
         /// y no estamos quietos

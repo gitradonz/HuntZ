@@ -6,6 +6,7 @@ public class disparoScript : MonoBehaviour
 {
 
     [SerializeField] Transform prefabExplosion;
+
     // Start is called before the first frame update
     void Start()
     {
