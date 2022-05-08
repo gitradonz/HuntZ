@@ -30,8 +30,8 @@ public class EnemigoVerdeScript : MonoBehaviour
         yield return new WaitForSeconds(pausa);
         Transform disparo = Instantiate(prefabShuriken,transform.position, Quaternion.identity);
         
-        float velocidadY = Random.Range(-5f, 5f);
-        float velocidadX = Random.Range(-5f, 5f);
+        float velocidadX = Random.Range(-8f, 8f);
+        float velocidadY = Random.Range(-3.8f, 3.8f);
         disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(velocidadX, velocidadY, 0).normalized * 5;
 
 
