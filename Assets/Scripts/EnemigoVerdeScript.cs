@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemigoVerdeScript : MonoBehaviour
@@ -7,7 +6,6 @@ public class EnemigoVerdeScript : MonoBehaviour
     [SerializeField] private float velocidadX = 2;
     [SerializeField] private float velocidadY = -2;
     [SerializeField] Transform prefabShuriken;
-    bool swapDirection = false;
 
 
 
@@ -28,20 +26,14 @@ public class EnemigoVerdeScript : MonoBehaviour
 
     IEnumerator Disparar()
     {
-        float pausa = Random.Range(2.0f, 5.0f);
+        float pausa = Random.Range(1.0f, 2.0f);
         yield return new WaitForSeconds(pausa);
         Transform disparo = Instantiate(prefabShuriken,transform.position, Quaternion.identity);
         
-        float velocidadPos = Random.Range(2f, 3f);
-        float velocidadNeg = Random.Range(-2f,-3f);
-        if (swapDirection == false){
-        disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(velocidadPos, velocidadPos, 0);
-        swapDirection=true;
-        } else {
-        disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(velocidadNeg, velocidadNeg, 0);
-        swapDirection=false;
-        }
-        
+        float velocidadY = Random.Range(-5f, 5f);
+        float velocidadX = Random.Range(-5f, 5f);
+        disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(velocidadX, velocidadY, 0).normalized * 5;
+
 
         StartCoroutine( Disparar() );
     }

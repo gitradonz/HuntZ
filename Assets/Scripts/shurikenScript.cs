@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class shurikenScript : MonoBehaviour
@@ -29,7 +27,7 @@ public class shurikenScript : MonoBehaviour
         // Cuando haya colision con un enemigo
         if (other.tag == "Player")
         {
-            Debug.Log("He muerto");
+            Debug.Log("He muerto por shuriken");
             // Instanciamos el GameObject de la explosion mediante prefab
             Transform explosion = Instantiate(prefabExplosion, other.transform.position, Quaternion.identity);
 

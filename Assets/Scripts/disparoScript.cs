@@ -16,7 +16,7 @@ public class disparoScript : MonoBehaviour
     void Update()
     {
         if (transform.position.y > 5 || transform.position.y < -5 ||
-            transform.position.x > 8.8 || transform.position.x < -8.8)
+            transform.position.x > 9.2 || transform.position.x < -9.2)
         {
             Destroy(gameObject);
         }
