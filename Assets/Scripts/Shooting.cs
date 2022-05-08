@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        transform.Rotate (Vector3.forward * -90);
     }
 
     // Update is called once per frame
