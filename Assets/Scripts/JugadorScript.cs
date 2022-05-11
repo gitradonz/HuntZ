@@ -3,8 +3,8 @@ using UnityEngine;
 public class JugadorScript : MonoBehaviour
 {
     [SerializeField] private float velocidad = 7;
-    [SerializeField] private float cadenciaDisparo = 1f;
-    [SerializeField] private float nDisparos = 1f;
+    [SerializeField] public float cadenciaDisparo = 1f;
+    [SerializeField] public float nDisparos = 1f;
     private float sigDisparo = 0.0F;
     [SerializeField] Transform prefabDisparo;
     [SerializeField] Transform prefabExplosion;	
@@ -82,6 +82,8 @@ public class JugadorScript : MonoBehaviour
     {
        GameObject.Find("GameController").GetComponent<GameController>().deadText.text = "You died"; 
        GameObject.Find("GameController").GetComponent<GameController>().restartButton.gameObject.SetActive(true);
+       GameObject.Find("GameController").GetComponent<GameController>().uploadScore.gameObject.SetActive(true);
+       GameObject.Find("GameController").GetComponent<GameController>().backMenu.gameObject.SetActive(true);
     }
 
 }

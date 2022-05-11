@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
     public UnityEngine.UI.Text level;
     public UnityEngine.UI.Text deadText;
     public UnityEngine.UI.Button restartButton;
+    public UnityEngine.UI.Button uploadScore;
+    public UnityEngine.UI.Button backMenu;
     public float enemySpawnSpeed = 2f;
     // Start is called before the first frame update
     void Start()

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "541336169122",
+    "firebase_url": "https://proyecto-huntzinfo-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "proyecto-huntzinfo",
+    "storage_bucket": "proyecto-huntzinfo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541336169122:android:503853b697cc1b957845fb",
+        "android_client_info": {
+          "package_name": "com.radonz.huntz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541336169122-fnsbgp3n1e0u3smpdsvnhf53ad4qdt4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9c3vLRBQG1Gp2KPOJSvclz1UMskPGKJI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541336169122-fnsbgp3n1e0u3smpdsvnhf53ad4qdt4l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
