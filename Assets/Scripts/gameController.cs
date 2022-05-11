@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class gameController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
 
     [SerializeField] Transform prefabEnemigo;	
     public UnityEngine.UI.Text kills;
     public UnityEngine.UI.Text level;
+    public UnityEngine.UI.Text deadText;
+    public UnityEngine.UI.Button restartButton;
     public float enemySpawnSpeed = 2f;
     // Start is called before the first frame update
     void Start()

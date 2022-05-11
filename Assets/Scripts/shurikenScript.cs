@@ -27,7 +27,7 @@ public class shurikenScript : MonoBehaviour
         // Cuando haya colision con un enemigo
         if (other.tag == "Player")
         {
-            Debug.Log("He muerto por shuriken");
+            // gameController.diedText.text = "You died";     
             // Instanciamos el GameObject de la explosion mediante prefab
             Transform explosion = Instantiate(prefabExplosion, other.transform.position, Quaternion.identity);
 

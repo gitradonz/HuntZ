@@ -17,7 +17,6 @@ public class JugadorScript : MonoBehaviour
 
     void Start()
     {
-       
     }
 
     void Update()
@@ -78,6 +77,11 @@ public class JugadorScript : MonoBehaviour
             Vector3 direction = mousePos - transform.position;
             disparo.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x+i, direction.y).normalized * 5; // 5 = velocidad de disparo
         }
+    }
+    void OnDestroy()
+    {
+       GameObject.Find("GameController").GetComponent<GameController>().deadText.text = "You died"; 
+       GameObject.Find("GameController").GetComponent<GameController>().restartButton.gameObject.SetActive(true);
     }
 
 }
