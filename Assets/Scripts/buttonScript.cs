@@ -27,10 +27,7 @@ public class buttonScript : MonoBehaviour
 
     public void ReiniciarJuego(){
         // Restart the game
-        GameObject.Find("GameController").GetComponent<GameController>().kills.text = "0";
-        GameObject.Find("GameController").GetComponent<GameController>().level.text = "Level 1";
-        GameObject.Find("GameController").GetComponent<GameController>().enemySpawnSpeed = 2f;        
-        disparoScript.killCount = 0;
+        cleanInfo();
         SceneManager.LoadScene("GameScene");
     }
 
@@ -52,11 +49,28 @@ public class buttonScript : MonoBehaviour
                 .Child(userID)
                 .SetRawJsonValueAsync(json);
 
-                Debug.Log("Score uploaded");
+                cleanInfo();
                 SceneManager.LoadScene("MenuScene");
         }else{
            GameObject.Find("GameController").GetComponent<GameController>().nickError.gameObject.SetActive(true);
         }
     }
+
+    void cleanInfo(){
+        GameObject.Find("GameController").GetComponent<GameController>().kills.text = "0";
+        GameObject.Find("GameController").GetComponent<GameController>().level.text = "Level 1";
+        GameObject.Find("GameController").GetComponent<GameController>().enemySpawnSpeed = 2f;        
+        disparoScript.killCount = 0;
+    }
+
+    public void exitGame(){
+        Application.Quit();
+    }
+
+    public void clickTutorial(){
+
+    }
+
+    public void clickCredits(){}
     
 }
