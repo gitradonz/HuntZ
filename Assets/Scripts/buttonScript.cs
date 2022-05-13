@@ -1,12 +1,18 @@
 using UnityEngine;
+using Firebase.Database;
 using UnityEngine.SceneManagement;
+
+
 
 public class buttonScript : MonoBehaviour
 {
+    private string userID;
+    private DatabaseReference dbReference;
     // Start is called before the first frame update
     void Start()
     {
-        
+        userID = Random.Range(0, 100000).ToString();
+        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
     // Update is called once per frame
@@ -34,7 +40,23 @@ public class buttonScript : MonoBehaviour
     }
 
     public void UploadScore(){
-        Debug.Log("Uploading score");
+        if (GameObject.Find("GameController").GetComponent<GameController>().nickInput.text.Length > 3 &&
+            GameObject.Find("GameController").GetComponent<GameController>().nickInput.text.Length < 10){
+                User newUser = new User(
+                    GameObject.Find("GameController").GetComponent<GameController>().nickInput.text,
+                    disparoScript.killCount);
+
+                string json = JsonUtility.ToJson(newUser);
+
+                dbReference.Child("Jugadores")
+                .Child(userID)
+                .SetRawJsonValueAsync(json);
+
+                Debug.Log("Score uploaded");
+                SceneManager.LoadScene("MenuScene");
+        }else{
+           GameObject.Find("GameController").GetComponent<GameController>().nickError.gameObject.SetActive(true);
+        }
     }
     
 }

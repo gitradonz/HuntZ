@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class GameController : MonoBehaviour
 {
 
@@ -8,14 +9,16 @@ public class GameController : MonoBehaviour
     public UnityEngine.UI.Text kills;
     public UnityEngine.UI.Text level;
     public UnityEngine.UI.Text deadText;
+    public UnityEngine.UI.Text nickError;
     public UnityEngine.UI.Button restartButton;
     public UnityEngine.UI.Button uploadScore;
     public UnityEngine.UI.Button backMenu;
+    public UnityEngine.UI.InputField nickInput;
     public float enemySpawnSpeed = 2f;
     // Start is called before the first frame update
     void Start()
     {
-         StartCoroutine(StartRespawnEnemy());
+        StartCoroutine(StartRespawnEnemy());
     }
 
 
@@ -45,4 +48,6 @@ public class GameController : MonoBehaviour
         Instantiate(prefabEnemigo, new Vector3(positionXrandom, positionYrandom, 0), Quaternion.identity);
         StartCoroutine(StartRespawnEnemy());
     }
+
+    
 }

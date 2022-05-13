@@ -20,7 +20,7 @@ public class EnemigoVerdeScript : MonoBehaviour
     {
         transform.Translate(velocidadX * Time.deltaTime, velocidadY * Time.deltaTime, 0);
 
-        if ((transform.position.x < -8.8) || (transform.position.x > 8.8)) velocidadX = -velocidadX;
+        if ((transform.position.x < -7.5) || (transform.position.x > 7.5)) velocidadX = -velocidadX;
         if ((transform.position.y < -3.8) || (transform.position.y > 3.8)) velocidadY = -velocidadY;
     }
 
