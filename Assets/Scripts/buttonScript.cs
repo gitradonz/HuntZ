@@ -68,9 +68,11 @@ public class buttonScript : MonoBehaviour
     }
 
     public void clickTutorial(){
-
+        SceneManager.LoadScene("TutorialScene");
     }
 
-    public void clickCredits(){}
+    public void clickCredits(){
+        SceneManager.LoadScene("CreditsScene");
+    }
     
 }
