@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
 
      IEnumerator StartRespawnEnemy(){
         yield return new WaitForSeconds(enemySpawnSpeed);
-        float positionXrandom = Random.Range(-8.8f, 8.8f);
+        float positionXrandom = Random.Range(-7.5f, 7.5f);
         float positionYrandom = Random.Range(-3.8f, 3.8f);
         Instantiate(prefabEnemigo, new Vector3(positionXrandom, positionYrandom, 0), Quaternion.identity);
         StartCoroutine(StartRespawnEnemy());
